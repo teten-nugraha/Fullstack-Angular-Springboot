@@ -1,5 +1,6 @@
 package id.ten.springblog.controller;
 
+import id.ten.springblog.dto.LoginRequestDto;
 import id.ten.springblog.dto.RegisterRequestDto;
 import id.ten.springblog.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,8 @@ public class AuthController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-
+    @PostMapping("/login")
+    public String login(@RequestBody LoginRequestDto loginRequestDto) {
+        return authService.login(loginRequestDto);
+    }
 }
